@@ -27,8 +27,7 @@ public class LogfileCreator
      */
     public boolean createFile(String filename, int numEntries)
     {
-        boolean success = false;
-        
+        boolean success = false;        
         if(numEntries > 0) {
             try (FileWriter writer = new FileWriter(filename)) {
                 LogEntry[] entries = new LogEntry[numEntries];
@@ -39,14 +38,12 @@ public class LogfileCreator
                 for(int i = 0; i < numEntries; i++) {
                     writer.write(entries[i].toString());
                     writer.write('\n');
-                }
-                
+                }                
                 success = true;
             }
             catch(IOException e) {
                 System.err.println("There was a problem writing to " + filename);
-            }
-                
+            }                
         }
         return success;
     }
